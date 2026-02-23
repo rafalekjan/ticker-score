@@ -1,0 +1,122 @@
+﻿<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swing Setups</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topnav">
+      <a class="brand" href="/">Ticker Score</a>
+      <nav>
+        <a href="/spy.html">SPY Gate</a>
+        <a href="/stocks.html">Stock Data</a>
+        <a class="active" href="/setups.html">Swing Setups</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h1>Swing Options Selector</h1>
+        <p class="subtle">TradingView UDF + Blueprint-based contract filter.</p>
+
+        <div class="row">
+          <label>
+            Ticker query
+            <input id="query" value="AAPL" />
+          </label>
+          <button id="searchBtn">Search TV</button>
+        </div>
+
+        <label>
+          Symbol from TV (`exchange:symbol`)
+          <input id="selectedSymbol" placeholder="NasdaqNM:AAPL" />
+        </label>
+
+        <div class="row">
+          <button id="quoteBtn">Get quote</button>
+          <span id="spotPrice">Spot: -</span>
+        </div>
+
+        <div>
+          <h2>TV search results</h2>
+          <ul id="searchResults"></ul>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Selection input</h2>
+        <div class="grid2">
+          <label>
+            Direction
+            <select id="direction">
+              <option value="CALL">CALL</option>
+              <option value="PUT">PUT</option>
+            </select>
+          </label>
+          <label>
+            Market Permission
+            <select id="marketPermission">
+              <option value="FULL">FULL</option>
+              <option value="REDUCED">REDUCED</option>
+              <option value="OBSERVATION">OBSERVATION</option>
+              <option value="BLOCKED">BLOCKED</option>
+            </select>
+          </label>
+          <label>
+            IV Context
+            <select id="ivContextTag">
+              <option value="OK">OK</option>
+              <option value="RISK">RISK</option>
+            </select>
+          </label>
+          <label>
+            Expected move speed
+            <select id="expectedMoveSpeed">
+              <option value="IMPULSE">IMPULSE</option>
+              <option value="GRIND">GRIND</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row gap">
+          <button id="seedBtn">Generate sample chain</button>
+          <button id="evaluateBtn">Evaluate contract</button>
+        </div>
+
+        <h3>Options chain (editable)</h3>
+        <p class="subtle">Columns: expiry,dte,type,strike,bid,ask,volume,openInterest,delta</p>
+        <textarea id="chain" rows="10"></textarea>
+
+        <h3>Decision</h3>
+        <pre id="result">-</pre>
+
+        <h3>Save setup</h3>
+        <div class="grid2">
+          <label>
+            Setup ticker
+            <input id="setupTicker" placeholder="AAPL" />
+          </label>
+          <label>
+            TV symbol
+            <input id="setupTvSymbol" placeholder="NasdaqNM:AAPL" />
+          </label>
+        </div>
+        <label>
+          Notes
+          <input id="setupNotes" placeholder="Optional notes" />
+        </label>
+        <div class="row gap">
+          <button id="saveSetupBtn">Save setup to DB</button>
+          <button id="loadSetupsBtn">Load setups</button>
+        </div>
+
+        <h3>Recent setups</h3>
+        <pre id="setupsResult">-</pre>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

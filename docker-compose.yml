@@ -1,7 +1,36 @@
-version: '3.8'
-
 services:
-  db:
-   
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ticker-score-app
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgres://postgres:postgres@db:5432/ticker_score
+      TV_UDF_BASE_URL: https://demo-feed-data.tradingview.com
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
 
-  web:
+  db:
+    image: postgres:16-alpine
+    container_name: ticker-score-db
+    environment:
+      POSTGRES_DB: ticker_score
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ticker_score"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  pg_data:

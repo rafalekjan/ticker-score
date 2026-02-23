@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPY Gate</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topnav">
+      <a class="brand" href="/">Ticker Score</a>
+      <nav>
+        <a class="active" href="/spy.html">SPY Gate</a>
+        <a href="/stocks.html">Stock Data</a>
+        <a href="/setups.html">Swing Setups</a>
+      </nav>
+    </header>
+
+    <main class="single">
+      <section class="panel">
+        <h1>SPY Gate</h1>
+        <p class="subtle">Manualna ocena warunkow rynku + dane SPY z TV.</p>
+
+        <div class="row">
+          <label>
+            Symbol SPY
+            <input id="spySymbol" value="AMEX:SPY" />
+          </label>
+          <button id="loadSpyBtn">Load TV bundle</button>
+        </div>
+
+        <div class="grid2">
+          <label>Bias
+            <select id="bias">
+              <option value="BULL">BULL</option>
+              <option value="BEAR">BEAR</option>
+              <option value="MIXED">MIXED</option>
+            </select>
+          </label>
+          <label>Regime
+            <select id="regime">
+              <option value="TREND">TREND</option>
+              <option value="RANGE">RANGE</option>
+              <option value="VOLATILE">VOLATILE</option>
+            </select>
+          </label>
+          <label>Breadth
+            <select id="breadth">
+              <option value="STRONG">STRONG</option>
+              <option value="NEUTRAL">NEUTRAL</option>
+              <option value="WEAK">WEAK</option>
+            </select>
+          </label>
+          <label>VIX Risk
+            <select id="vixRisk">
+              <option value="LOW">LOW</option>
+              <option value="MEDIUM">MEDIUM</option>
+              <option value="HIGH">HIGH</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row gap">
+          <button id="evaluateSpyBtn">Evaluate Permission</button>
+          <span id="permissionBadge" class="badge">Permission: -</span>
+        </div>
+
+        <h3>SPY Result</h3>
+        <pre id="spyResult">-</pre>
+      </section>
+    </main>
+
+    <script type="module" src="/spy.js"></script>
+  </body>
+</html>

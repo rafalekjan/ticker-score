@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(130deg, #f4f7fb 0%, #dbe7f7 100%);
+  color: #1d2b3a;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #12345a;
+  color: #fff;
+}
+
+.topnav a {
+  color: #d8e6f8;
+  text-decoration: none;
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+.topnav a.active,
+.topnav a:hover {
+  color: #fff;
+}
+
+.brand {
+  color: #fff !important;
+  margin-left: 0 !important;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.single {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #d6e0ed;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 10px;
+}
+
+.subtle {
+  color: #53657a;
+  font-size: 14px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  border: 1px solid #b6c6d8;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 9px;
+}
+
+button {
+  cursor: pointer;
+  background: #1f5ea8;
+  color: #fff;
+  border: none;
+}
+
+button:hover {
+  background: #174881;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+  margin-top: 8px;
+}
+
+.gap {
+  gap: 12px;
+}
+
+.row > * {
+  flex: 1;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cards {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #f3f8ff;
+  border: 1px solid #c9dbf3;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.card:hover {
+  background: #e8f2ff;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b6c6d8;
+  background: #eef4fb;
+}
+
+#searchResults {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+#searchResults li {
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+  background: #f6f9fd;
+  border: 1px solid #d6e0ed;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 140px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

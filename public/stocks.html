@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Data</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topnav">
+      <a class="brand" href="/">Ticker Score</a>
+      <nav>
+        <a href="/spy.html">SPY Gate</a>
+        <a class="active" href="/stocks.html">Stock Data</a>
+        <a href="/setups.html">Swing Setups</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h1>Stock Data</h1>
+        <p class="subtle">TradingView UDF: search, quote, history, ticker bundle.</p>
+
+        <div class="row">
+          <label>
+            Query
+            <input id="query" value="AAPL" />
+          </label>
+          <button id="searchBtn">Search</button>
+        </div>
+
+        <label>
+          Symbol
+          <input id="selectedSymbol" placeholder="NasdaqNM:AAPL" />
+        </label>
+
+        <div class="row gap">
+          <button id="quoteBtn">Get Quote</button>
+          <button id="historyBtn">Get History 180D</button>
+          <button id="bundleBtn">Get Bundle</button>
+        </div>
+
+        <h3>Search results</h3>
+        <ul id="searchResults"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Output</h2>
+        <pre id="stockResult">-</pre>
+      </section>
+    </main>
+
+    <script type="module" src="/stocks.js"></script>
+  </body>
+</html>
